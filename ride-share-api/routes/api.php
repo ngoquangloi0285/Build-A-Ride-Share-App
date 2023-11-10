@@ -24,6 +24,5 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::post('/trip/{trips}/loctation', [TripController::class, 'location']);
 
     Route::get('/user', function (Request $request) {
-        return User::all();
     });
 });

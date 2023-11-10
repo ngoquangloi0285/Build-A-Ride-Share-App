@@ -97,7 +97,10 @@ class AuthenticationController extends Controller
                 'login_code' => null
             ]);
 
-            return $user->createToken($request->login_code)->plainTextToken;
+            return response()->json([
+                "message" => "Successfully",
+                "token" => $user->createToken($request->login_code)->plainTextToken
+            ]);
         }
         // if not, return back a message
         return response()->json(['message' => 'Invalid verification code.', 401]);
